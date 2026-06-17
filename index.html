@@ -72,7 +72,7 @@
             <a href="#sobre" class="btn btn--ghost">Conheça a Shammah →</a>
           </div>
           <div class="hero__stats">
-            <div><strong>23+</strong><span>Anos de experiência</span></div>
+            <div><strong>Bem-estar</strong><span>Qualidade de vida diária</span></div>
             <div><strong>24h</strong><span>Cuidado contínuo</span></div>
             <div><strong>100%</strong><span>Equipe qualificada</span></div>
           </div>
@@ -87,7 +87,7 @@
           <span class="eyebrow">Sobre a Shammah</span>
           <h2>Mais que uma clínica.<br/>Um verdadeiro lar.</h2>
           <p>A Shammah nasceu da convicção de que envelhecer com dignidade é um direito. Nossa casa de repouso reúne profissionais especializados, ambientes pensados em cada detalhe e uma rotina que respeita a individualidade de cada pessoa.</p>
-          <p>Combinamos a estrutura de uma clínica geriátrica moderna ao calor humano de uma residência familiar — porque acolhimento começa nos pequenos gestos.</p>
+          <p>Combinamos a estrutura de uma clínica geriátrica moderna ao calor humano de uma residência familiar, porque acolhimento começa nos pequenos gestos.</p>
           <ul class="check-list">
             <li>Equipe multidisciplinar 24 horas</li>
             <li>Plano de cuidados individualizado</li>
@@ -96,11 +96,11 @@
         </div>
         <div class="about__image reveal">
           <div class="about__image-inner">
-            <img src="img/banner.png" alt="">
+            <img src="img/banner-em-breve.png" alt="">
           </div>
-          <div class="about__badge">
+          <!-- <div class="about__badge">
             <strong>Cuidar é<br/>nossa essência.</strong>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -149,7 +149,7 @@
     </section>
 
     <!-- Estrutura -->
-    <section class="section" id="estrutura">
+    <!-- <section class="section" id="estrutura">
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Estrutura & Acomodações</span>
@@ -179,7 +179,7 @@
           </figure>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Diferenciais -->
     <section class="section section--dark" id="diferenciais">
@@ -260,41 +260,92 @@
           </div>
         </div>
 
-        <form class="form reveal" id="visitForm" novalidate>
+        <form
+          class="form reveal"
+          id="visitForm"
+          action="https://formsubmit.co/contato.casashammah@gmail.com"
+          method="POST"
+        >
+          <!-- Configurações FormSubmit -->
+          <input type="hidden" name="_subject" value="Novo agendamento de visita - Casa de Repouso Shammah">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
           <h3>Agendamento de visita</h3>
+
           <div class="form__row">
-            <label>Nome completo
-              <input type="text" name="nome" required placeholder="Seu nome" />
+            <label>
+              Nome completo
+              <input
+                type="text"
+                name="Nome Completo"
+                required
+                placeholder="Seu nome"
+              />
             </label>
           </div>
+
           <div class="form__row form__row--2">
-            <label>Telefone
-              <input type="tel" name="telefone" required placeholder="(11) 90000-0000" />
+            <label>
+              Telefone
+              <input
+                type="tel"
+                name="Telefone"
+                required
+                placeholder="(11) 90000-0000"
+              />
             </label>
-            <label>E-mail
-              <input type="email" name="email" required placeholder="voce@email.com" />
+
+            <label>
+              E-mail
+              <input
+                type="email"
+                name="E-mail"
+                required
+                placeholder="voce@email.com"
+              />
             </label>
           </div>
+
           <div class="form__row form__row--2">
-            <label>Data preferida
-              <input type="date" name="data" required />
+            <label>
+              Data preferida
+              <input
+                type="date"
+                name="Data Preferida"
+                required
+              />
             </label>
-            <label>Horário
-              <select name="horario" required>
+
+            <label>
+              Período
+              <select name="Horário" required>
                 <option value="">Selecione</option>
-                <option>Manhã</option>
-                <option>Tarde</option>
-                <option>Noite</option>
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noite">Noite</option>
               </select>
             </label>
           </div>
+
           <div class="form__row">
-            <label>Mensagem
-              <textarea name="mensagem" rows="4" placeholder="Conte-nos um pouco sobre a pessoa que receberá o cuidado..."></textarea>
+            <label>
+              Mensagem
+              <textarea
+                name="Mensagem"
+                rows="4"
+                placeholder="Conte-nos um pouco sobre a pessoa que receberá o cuidado..."
+              ></textarea>
             </label>
           </div>
-          <button type="submit" class="btn btn--primary btn--block">Confirmar agendamento</button>
-          <p class="form__note" id="formNote" hidden>Recebemos sua solicitação. Entraremos em contato em breve.</p>
+
+          <button type="submit" class="btn btn--primary btn--block">
+            Confirmar agendamento
+          </button>
+
+          <p class="form__note" id="formNote" hidden>
+            Recebemos sua solicitação. Entraremos em contato em breve.
+          </p>
         </form>
       </div>
     </section>
@@ -333,6 +384,20 @@
       <span>Cuidado humanizado em São Paulo</span>
     </div>
   </footer>
+
+  <!-- modal formulário -->
+  <div id="successModal" class="modal">
+  <div class="modal-content">
+    <div class="check">✓</div>
+    <h3>Agendamento enviado!</h3>
+    <p>
+      Recebemos sua solicitação e entraremos em contato em breve.
+    </p>
+    <button onclick="document.getElementById('successModal').classList.remove('active')">
+      Fechar
+    </button>
+  </div>
+</div>
 
   <script src="/js/script.js" defer></script>
 </body>

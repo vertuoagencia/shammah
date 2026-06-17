@@ -39,17 +39,38 @@
 
   // Form
   const form = document.getElementById("visitForm");
-  const note = document.getElementById("formNote");
+  const modal = document.getElementById("successModal");
+
   if (form) {
-    form.addEventListener("submit", (ev) => {
+    form.addEventListener("submit", async (ev) => {
       ev.preventDefault();
+
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
-      note.hidden = false;
-      form.reset();
-      setTimeout(() => (note.hidden = true), 6000);
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          modal.classList.add("active");
+          form.reset();
+        } else {
+          alert("Não foi possível enviar o formulário.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao enviar formulário.");
+      }
     });
   }
 })();
